@@ -1,0 +1,12 @@
+[Unit]
+Description=smart-power workload-aware power profile switcher
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/smart-power.sh
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

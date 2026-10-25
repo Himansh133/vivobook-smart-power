@@ -1,0 +1,24 @@
+# smart-power config. Copy to ~/.config/smart-power/config and edit.
+# Every line is optional; the script has the same defaults built in.
+
+INTERVAL=10               # seconds between samples
+# Sum of every core's usage. 100 = one full core busy, 400 = four full cores.
+# Works the same on any thread count, and a single-threaded job that hops
+# between cores still adds up to about 100.
+CPU_BUSY_SUM=80
+GPU_HIGH=40               # NVIDIA GPU % that counts as heavy load
+UP_SAMPLES=3              # heavy samples in a row before switching up (3 x 10s = ~30s)
+DOWN_SAMPLES=12           # light samples in a row before switching down (12 x 10s = ~2min)
+MIN_HOLD=30               # minimum seconds between profile changes
+
+AC_IDLE_PROFILE=balanced
+AC_LOAD_PROFILE=performance
+BATTERY_PROFILE=balanced  # or power-saver
+
+# Temperature guard. Zone is looked up by name, not number.
+# On the Vivobook K3405ZF this is thermal_zone9.
+TEMP_ZONE_TYPE=x86_pkg_temp
+TEMP_LIMIT_C=85
+TEMP_RESUME_C=75
+
+USE_GPU=1                 # 0 skips nvidia-smi entirely
